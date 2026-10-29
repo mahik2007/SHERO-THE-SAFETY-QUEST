@@ -13,6 +13,8 @@ import { SettingsModal } from './components/SettingsModal';
 import { CreditsModal } from './components/CreditsModal';
 import { CharacterIntroModal } from './components/CharacterIntroModal';
 import { MissionBriefingModal } from './components/MissionBriefingModal';
+import { GetHelpButton } from './components/GetHelpButton';
+import { EmergencyHelpModal } from './components/EmergencyHelpModal';
 import { Mission } from '../shared/types';
 import { MISSIONS } from '../shared/missionsData';
 import { storage } from './utils/storage';
@@ -48,6 +50,7 @@ export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>('title');
   const [returnView, setReturnView] = useState<AppView>('title');
   const [activeMission, setActiveMission] = useState<Mission | null>(null);
+  const [isHelpOpen, setIsHelpOpen] = useState<boolean>(false);
 
   // Persistent game state across all screens
   const [playerName, setPlayerName] = useState<string>(
@@ -276,6 +279,17 @@ export const App: React.FC = () => {
       {currentView === 'credits' && (
         <CreditsModal onBack={() => setCurrentView(returnView)} />
       )}
+
+      {/* ── PERSISTENT TOP-RIGHT "GET HELP NOW" BUTTON ACROSS ALL VIEWS ── */}
+      <div className="fixed top-4 right-4 z-50">
+        <GetHelpButton onClick={() => setIsHelpOpen(true)} />
+      </div>
+
+      {/* Emergency Help Modal with India Helplines (112, 1091, 181, 1098, 1930) */}
+      <EmergencyHelpModal
+        isOpen={isHelpOpen}
+        onClose={() => setIsHelpOpen(false)}
+      />
 
       {/* ── PERSISTENT HUD (shown during gameplay screens) ─────── */}
       {(['gameplay', 'mission_select', 'final_results'].includes(currentView)) &&

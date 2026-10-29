@@ -5,7 +5,8 @@ import { StrangerPortrait, StrangerType } from './StrangerPortrait';
 import { Choice } from '../../shared/types';
 import { soundCtrl } from '../utils/sound';
 import { speechCtrl } from '../utils/speech';
-import { Volume2, VolumeX, ChevronRight, RotateCcw, AlertTriangle, ShieldCheck, Sparkles } from 'lucide-react';
+import { Volume2, VolumeX, ChevronRight, RotateCcw, AlertTriangle, ShieldCheck, Sparkles, MessageCircle } from 'lucide-react';
+import { KitsuSpirit } from './KitsuSpirit';
 
 export interface DialogueLine {
   id: string;
@@ -69,6 +70,8 @@ export const ComicBookDialogueScene: React.FC<ComicDialogueSceneProps> = ({
   // 3: Explanation & Outcome (after choice selected)
   const [panelStep, setPanelStep] = useState<number>(0);
   const [isSpeakingActive, setIsSpeakingActive] = useState<boolean>(false);
+  const [isKitsuOpen, setIsKitsuOpen] = useState<boolean>(false);
+  const [hintsLeft, setHintsLeft] = useState<number>(3);
   const speechTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // If a choice is already made, move to feedback step
@@ -195,6 +198,20 @@ export const ComicBookDialogueScene: React.FC<ComicDialogueSceneProps> = ({
 
         {/* Audio Replay & Controls */}
         <div className="flex items-center gap-2">
+          {/* Kitsu Gut Feeling Spirit Companion */}
+          <KitsuSpirit
+            hintText={heroInnerThought || (choices.find(c => c.isCorrect)?.educationalTip)}
+            isOpen={isKitsuOpen}
+            onToggle={() => {
+              soundCtrl.playSelect();
+              if (!isKitsuOpen && hintsLeft > 0) {
+                setHintsLeft(h => h - 1);
+              }
+              setIsKitsuOpen(!isKitsuOpen);
+            }}
+            hintsRemaining={hintsLeft}
+          />
+
           <button
             type="button"
             onClick={() => {

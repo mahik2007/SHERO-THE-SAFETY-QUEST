@@ -1,0 +1,114 @@
+[
+  {
+    "id": "mission-1",
+    "number": 1,
+    "title": "The Late Bus Stop",
+    "tagline": "Dusk falls over the transit hub, and an unexpected stranger closes the distance.",
+    "domain": "Public Transit Safety",
+    "environmentName": "City Bus Stop at Night",
+    "badgeName": "COMMUTE GUARDIAN",
+    "learningGoal": "Recognize boundary testing early, shift to illuminated staffed zones, and verify arrival protocols.",
+    "tipCard": {
+      "title": "Public Transit Shield",
+      "rule": "Always board through the illuminated front door near the driver and keep at least one trusted contact updated on your route."
+    }
+  },
+  {
+    "id": "mission-2",
+    "number": 2,
+    "title": "The Follower",
+    "tagline": "Footsteps match your pace along a quiet street as you head home.",
+    "domain": "Street Situational Awareness",
+    "environmentName": "Evening Commercial Street",
+    "badgeName": "STREET SENTINEL",
+    "learningGoal": "Spot persistent pacing, cross to active illuminated stores, and refuse isolated detours.",
+    "tipCard": {
+      "title": "Distance & Public Sight",
+      "rule": "Never walk into blind alleys to hide. Move directly toward staffed stores, cashiers, and crowded sidewalks."
+    }
+  },
+  {
+    "id": "mission-3",
+    "number": 3,
+    "title": "The Cab Ride",
+    "tagline": "Your evening ride-share arrives. Verify safety protocols before entering.",
+    "domain": "Ride-Share & Taxi Safety",
+    "environmentName": "City Intersection Pickup",
+    "badgeName": "TRANSIT NAVIGATOR",
+    "learningGoal": "Verify license plate and driver photo, ensure door locks function, and share live tracking.",
+    "tipCard": {
+      "title": "Ride-Share Check",
+      "rule": "Always ask 'Who are you picking up?' instead of giving your name first, and test the door handle immediately."
+    }
+  },
+  {
+    "id": "mission-4",
+    "number": 4,
+    "title": "Online Friend",
+    "tagline": "A player in your favorite gaming group begins asking for private photos and home addresses.",
+    "domain": "Cyber & Digital Safety",
+    "environmentName": "Digital Gaming Lounge",
+    "badgeName": "CYBER GUARDIAN",
+    "learningGoal": "Recognize online grooming, protect personal identifiers, and use block/report features immediately.",
+    "tipCard": {
+      "title": "Digital Privacy Shield",
+      "rule": "Never share your school, full name, address, or personal images with online acquaintances."
+    }
+  },
+  {
+    "id": "mission-5",
+    "number": 5,
+    "title": "Crowded Market",
+    "tagline": "During a festival shopping rush, someone repeatedly invades your personal space.",
+    "domain": "Crowd Boundary Defense",
+    "environmentName": "Bustling Central Bazaar",
+    "badgeName": "VOICE OF COURAGE",
+    "learningGoal": "Use a loud and clear 'NO!', draw natural bystander attention, and report to market security.",
+    "tipCard": {
+      "title": "Vocal Boundaries",
+      "rule": "A loud and firm refusal breaks silence and alerts everyone nearby. Never feel shy about protecting your space."
+    }
+  },
+  {
+    "id": "mission-6",
+    "number": 6,
+    "title": "The Office Lift",
+    "tagline": "An uncomfortable encounter inside an elevator at your workplace or college building.",
+    "domain": "Workplace & Institutional Safety",
+    "environmentName": "Commercial Tower Lobby",
+    "badgeName": "PROFESSIONAL SHIELD",
+    "learningGoal": "Maintain physical distance near button panels, exit promptly on populated floors, and document incidents.",
+    "tipCard": {
+      "title": "Safe Elevator Protocol",
+      "rule": "Stand near the control panel so you can press the next floor button and step out whenever uncomfortable."
+    }
+  },
+  {
+    "id": "mission-7",
+    "number": 7,
+    "title": "Party Night",
+    "tagline": "Navigating a social gathering, keeping an eye on your beverage, and watching out with friends.",
+    "domain": "Social Gathering Safety",
+    "environmentName": "College Rooftop Gathering",
+    "badgeName": "BUDDY GUARDIAN",
+    "learningGoal": "Practice the buddy system, never leave drinks unattended, and leave when instincts say so.",
+    "tipCard": {
+      "title": "The Buddy Code",
+      "rule": "Arrive together, check in frequently, and leave together. If your drink left your sight, get a fresh one."
+    }
+  },
+  {
+    "id": "mission-8",
+    "number": 8,
+    "title": "Be the Hero for Someone Else",
+    "tagline": "You spot a younger girl, Pihu, looking lost and distressed near the transit gate.",
+    "domain": "Active Bystander Intervention",
+    "environmentName": "Transit Station Entrance",
+    "badgeName": "COMMUNITY SHERO",
+    "learningGoal": "Offer calm bystander assistance, escort to authorized station staff, and avoid reckless solo escalation.",
+    "tipCard": {
+      "title": "Safe Bystander Action",
+      "rule": "Direct intervention is safest when you connect the person with official personnel or staff together."
+    }
+  }
+]

@@ -33,6 +33,7 @@ import {
 import type { PlayableCharacter } from './CharacterSelectScreen';
 import { CharacterPortrait } from './CharacterPortrait';
 import { ComicBookDialogueScene } from './ComicBookDialogueScene';
+import { SafetyCertificateModal } from './SafetyCertificateModal';
 
 interface GameplayViewProps {
   mission: Mission;
@@ -61,6 +62,7 @@ export const GameplayView: React.FC<GameplayViewProps> = ({
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(soundCtrl.getMuted());
   const [isVoiceOn, setIsVoiceOn] = useState<boolean>(speechCtrl.getVoiceEnabled());
+  const [showCertificate, setShowCertificate] = useState<boolean>(false);
 
   // CRITICAL BUG FIX: Reset node and run state whenever a different mission is passed/selected
   useEffect(() => {
@@ -463,6 +465,13 @@ export const GameplayView: React.FC<GameplayViewProps> = ({
                 <span>RESTART MISSION</span>
               </button>
               <button
+                onClick={() => setShowCertificate(true)}
+                className="py-3 px-6 rounded-xl bg-[#FFC857] hover:bg-amber-400 text-[#0D0B1E] font-orbitron font-extrabold text-xs tracking-wider flex items-center justify-center gap-2 shadow-lg transition cursor-pointer"
+              >
+                <Award className="w-4 h-4" />
+                <span>SAFETY CERTIFICATE</span>
+              </button>
+              <button
                 onClick={() => { soundCtrl.playSelect(); onExit(); }}
                 onMouseEnter={() => soundCtrl.playHover()}
                 className="py-3 px-6 rounded-xl bg-white/10 hover:bg-white/20 text-white font-orbitron font-bold text-xs tracking-wider flex items-center justify-center gap-2 transition cursor-pointer"
@@ -554,6 +563,13 @@ export const GameplayView: React.FC<GameplayViewProps> = ({
                 <span>REPLAY MISSION</span>
               </button>
               <button
+                onClick={() => setShowCertificate(true)}
+                className="py-3 px-6 rounded-xl bg-[#FFC857] hover:bg-amber-400 text-[#0D0B1E] font-orbitron font-extrabold text-xs tracking-wider flex items-center justify-center gap-2 shadow-lg transition cursor-pointer"
+              >
+                <Award className="w-4 h-4" />
+                <span>SAFETY CERTIFICATE</span>
+              </button>
+              <button
                 onClick={() => { soundCtrl.playSelect(); onExit(); }}
                 onMouseEnter={() => soundCtrl.playHover()}
                 className="py-3 px-6 rounded-xl bg-indigoDeep hover:bg-darkViolet border border-white/20 text-mutedLavender hover:text-white font-orbitron font-bold text-xs tracking-wider flex items-center justify-center gap-2 transition cursor-pointer"
@@ -564,6 +580,16 @@ export const GameplayView: React.FC<GameplayViewProps> = ({
           </div>
         )}
       </main>
+
+      {/* Safety Certificate Modal */}
+      {showCertificate && (
+        <SafetyCertificateModal
+          heroName={heroName}
+          score={score}
+          completedMissions={mission.number}
+          onClose={() => setShowCertificate(false)}
+        />
+      )}
 
       <footer className="relative z-10 w-full max-w-4xl mx-auto pt-4 text-center text-[11px] text-mutedLavender/50 border-t border-white/5">
         Strict Deterministic Safety Engine // No AI-guessed outcomes

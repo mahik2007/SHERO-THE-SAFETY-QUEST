@@ -115,6 +115,68 @@ app.get('/api/support-resources', (req: Request, res: Response) => {
   res.json(resources);
 });
 
+// Helplines endpoint (112, 1091, 181, 1098, 1930)
+app.get('/api/helplines', (req: Request, res: Response) => {
+  res.json([
+    { number: '112', name: 'National Emergency', desc: 'Police, medical, fire emergency response' },
+    { number: '1091', name: 'Women Helpline', desc: '24/7 Police emergency response for women' },
+    { number: '181', name: 'Women Helpline (Domestic Abuse)', desc: 'Toll-free 24-hour counseling & shelter' },
+    { number: '1098', name: 'Childline', desc: 'Protection service for minors and children' },
+    { number: '1930', name: 'Cyber Crime Reporting', desc: 'National cyber fraud & digital harassment reporting' }
+  ]);
+});
+
+// Guest auth session endpoint
+app.post('/api/auth/guest', (req: Request, res: Response) => {
+  const guestId = `guest_${Math.random().toString(36).substring(2, 9)}`;
+  res.json({
+    token: `shero_token_${guestId}`,
+    user: {
+      id: guestId,
+      name: 'Guest Hero',
+      isGuest: true
+    }
+  });
+});
+
+// Daily Quiz endpoint (3 questions)
+app.get('/api/quiz/daily', (req: Request, res: Response) => {
+  res.json({
+    date: new Date().toISOString().split('T')[0],
+    questions: [
+      {
+        id: 'dq1',
+        question: 'When waiting alone at a bus stop at night, where is the safest place to stand?',
+        options: [
+          'Under direct streetlights or near open staffed shops',
+          'In the shadows behind the shelter to hide',
+          'With noise-canceling headphones looking at your phone'
+        ],
+        correctIndex: 0,
+        tip: 'Public visibility and hearing awareness keep you safe.'
+      },
+      {
+        id: 'dq2',
+        question: 'What is the national emergency helpline number in India for all urgent assistance?',
+        options: ['100', '112', '999'],
+        correctIndex: 1,
+        tip: '112 connects police, fire, and ambulance services nationwide.'
+      },
+      {
+        id: 'dq3',
+        question: 'If an online friend in a chat game asks for your school name or daily schedule:',
+        options: [
+          'Send it if they promise to keep it a secret',
+          'Never share routine locations and report/block the account',
+          'Send a fake address instead'
+        ],
+        correctIndex: 1,
+        tip: 'Never share private identifiers or daily routines with online strangers.'
+      }
+    ]
+  });
+});
+
 // Optional AI Explanation endpoint
 app.post('/api/ai/explain', async (req: Request, res: Response) => {
   const { situation, choiceText, isCorrect } = req.body;
